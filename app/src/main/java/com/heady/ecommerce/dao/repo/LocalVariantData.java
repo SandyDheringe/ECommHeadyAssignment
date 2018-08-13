@@ -7,6 +7,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import io.reactivex.Single;
+
 public class LocalVariantData implements DataSource<Variant>
 {
     AppDatabase appDatabase;
@@ -26,5 +28,10 @@ public class LocalVariantData implements DataSource<Variant>
     @Override
     public void addItems(List<Variant> variantList)
     {
+    }
+
+    public Single<List<Variant>> getProductVariant(int productId)
+    {
+       return appDatabase.variantDataDao().getProductVariant(productId);
     }
 }

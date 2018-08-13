@@ -19,7 +19,6 @@ import android.widget.TextView;
 import com.heady.ecommerce.BaseApplication;
 import com.heady.ecommerce.BaseFragment;
 import com.heady.ecommerce.R;
-import com.heady.ecommerce.api.ApiService;
 import com.heady.ecommerce.domain.cartdetails.CartActivity;
 import com.heady.ecommerce.domain.productdetails.ProductDetailActivity;
 import com.heady.ecommerce.domain.productdetails.ProductDetailFragment;
@@ -149,6 +148,7 @@ public class ProductListFragment extends BaseFragment implements Contracts.View
     {
 //        productListAdapter.clear();
         productListAdapter.setAll(productDetailsList);
+        rvCategoryList.smoothScrollToPosition(0);
         hideLoading();
     }
 
@@ -181,7 +181,6 @@ public class ProductListFragment extends BaseFragment implements Contracts.View
         llLoading.setVisibility(View.GONE);
         rvCategoryList.setVisibility(View.VISIBLE);
         tvSort.setVisibility(View.VISIBLE);
-
     }
 
     @Override

@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
+
     <LinearLayout
         android:id="@+id/ll_summary"
         android:layout_width="match_parent"
@@ -86,5 +87,17 @@
         android:padding="@dimen/padding_x"
         android:visibility="gone"
         tools:listitem="@layout/item_cart_product_details" />
+
+
+    <TextView
+        android:id="@+id/tv_no_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/margin_x"
+        android:gravity="center"
+        android:text="@string/no_item_in_cart"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_2x" />
 
 </RelativeLayout>

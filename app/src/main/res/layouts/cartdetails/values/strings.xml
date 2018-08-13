@@ -17,4 +17,12 @@
     <string name="most_ordered">Most Ordered</string>
     <string name="most_shared">Most Shared</string>
     <string name="sort">SORT</string>
+    <string name="go_to_cart">Go To Cart</string>
+    <string name="str_avaiable_in_color">Available in %s color</string>
+    <string name="available_in_size">Available in %d size</string>
+    <string name="select_similar">Select Similar</string>
+    <string name="str_ordered">Ordered by %d Peoples</string>
+    <string name="str_shared">Shared by %d Peoples</string>
+    <string name="str_viewed">Viewed by %d Peoples</string>
+    <string name="no_item_in_cart">No Item in Cart</string>
 </resources>

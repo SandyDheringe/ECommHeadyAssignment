@@ -49,6 +49,8 @@ public class CartFragment extends BaseFragment implements Contracts.View
 
     @BindView(R.id.ll_summary)
     LinearLayout llSummary;
+    @BindView(R.id.tv_no_item)
+    TextView tvNoItem;
     Unbinder unbinder;
 
     @Inject
@@ -115,10 +117,24 @@ public class CartFragment extends BaseFragment implements Contracts.View
     @Override
     public void populateData(List<CartDetail> categoryGroupList, CartSummary cartSummary)
     {
-        cartAdapter = new CartAdapter(getActivity(), categoryGroupList, cartSummary, this);
-        rvCategoryList.setAdapter(cartAdapter);
-        tvTotal.setText(getString(R.string.str_rs, cartSummary.getTotalPayable()));
-        hideLoading();
+        if (categoryGroupList != null && categoryGroupList.size() != 0)
+        {
+            cartAdapter = new CartAdapter(getActivity(), categoryGroupList, cartSummary, this);
+            rvCategoryList.setAdapter(cartAdapter);
+            tvTotal.setText(getString(R.string.str_rs, cartSummary.getTotalPayable()));
+            hideLoading();
+        } else
+            showNoItem();
+
+    }
+
+    void showNoItem()
+    {
+        tvNoItem.setVisibility(View.VISIBLE);
+        llSummary.setVisibility(View.GONE);
+        rvCategoryList.setVisibility(View.GONE);
+        progressBar.setVisibility(View.GONE);
+        tvInfo.setVisibility(View.GONE);
     }
 
     @Override
@@ -131,6 +147,7 @@ public class CartFragment extends BaseFragment implements Contracts.View
     @Override
     public void showLoading()
     {
+        tvNoItem.setVisibility(View.GONE);
         llSummary.setVisibility(View.GONE);
         rvCategoryList.setVisibility(View.GONE);
         progressBar.setVisibility(View.VISIBLE);
@@ -140,6 +157,7 @@ public class CartFragment extends BaseFragment implements Contracts.View
     @Override
     public void hideLoading()
     {
+        tvNoItem.setVisibility(View.GONE);
         progressBar.setVisibility(View.GONE);
         tvInfo.setVisibility(View.GONE);
         rvCategoryList.setVisibility(View.VISIBLE);

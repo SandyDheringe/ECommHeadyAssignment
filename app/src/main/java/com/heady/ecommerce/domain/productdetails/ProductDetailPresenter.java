@@ -1,8 +1,12 @@
 package com.heady.ecommerce.domain.productdetails;
 
 import com.heady.ecommerce.dao.repo.Repository;
+import com.heady.ecommerce.model.response.VariantDTO;
 import com.heady.ecommerce.model.roomentities.Cart;
+import com.heady.ecommerce.model.roomentities.Variant;
 import com.heady.ecommerce.model.roomentities.relation.ProductDetails;
+
+import java.util.ArrayList;
 
 import io.reactivex.Completable;
 import io.reactivex.CompletableObserver;
@@ -31,6 +35,24 @@ public class ProductDetailPresenter implements Contracts.Presenter
     public void init()
     {
         productListView.initView();
+
+    }
+
+    void getProductVariant(int productId)
+    {
+        Disposable disposable = repository.variantData().getProductVariant(productId)
+                .subscribeOn(Schedulers.io())
+                .map(variants ->
+                {
+                    ArrayList<VariantDTO> variantDTOList = new ArrayList<>();
+                    for (Variant variant : variants)
+                    {
+                        variantDTOList.add(new VariantDTO(variant.getVariantId(), variant.getColor(), variant.getSize(), variant.getPrice()));
+                    }
+                    return variantDTOList;
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(productListView::onVariantFetched, productListView::onError);
     }
 
     @Override
@@ -61,7 +83,7 @@ public class ProductDetailPresenter implements Contracts.Presenter
                     @Override
                     public void onError(Throwable e)
                     {
-                        productListView.onError(e);
+                        productListView.onAddError(e);
                     }
                 });
 
