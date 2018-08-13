@@ -43,5 +43,7 @@ public interface Contracts
         void hideLoading();
 
         void addtoCart(ProductDetails productDetails);
+        void onDetach();
+
     }
 }

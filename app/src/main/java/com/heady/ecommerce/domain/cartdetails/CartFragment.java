@@ -165,13 +165,27 @@ public class CartFragment extends BaseFragment implements Contracts.View
     }
 
     @Override
-    public void removeFromCart()
+    public void removeFromCart(CartDetail cartDetail)
     {
+        presenter.removeFromCart(cartDetail.cart.getCartId());
     }
 
     @OnClick(R.id.ll_total)
     public void showTotalDetails()
     {
         rvCategoryList.smoothScrollToPosition(cartAdapter.getItemCount());
+    }
+
+    @Override
+    public void productRemoved()
+    {
+        Snackbar.make(tvInfo, R.string.removed_from_cart, Snackbar.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onDestroy()
+    {
+        super.onDestroy();
+        presenter.onDetach();
     }
 }

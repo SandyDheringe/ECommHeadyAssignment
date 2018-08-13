@@ -232,4 +232,11 @@ public class ProductDetailFragment extends BaseFragment implements Contracts.Vie
     {
         this.variants = variants;
     }
+
+    @Override
+    public void onDestroy()
+    {
+        super.onDestroy();
+        presenter.onDetach();
+    }
 }

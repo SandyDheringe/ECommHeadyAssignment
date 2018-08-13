@@ -41,4 +41,9 @@ public class LocalCartData implements DataSource<Cart>
     {
         return appDatabase.cartDao().getCartDetails();
     }
+
+    public void removeFromCart(int cartId)
+    {
+        appDatabase.cartDao().removeFromCart(cartId);
+    }
 }

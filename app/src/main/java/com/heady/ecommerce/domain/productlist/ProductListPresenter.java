@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
@@ -19,12 +20,14 @@ public class ProductListPresenter implements Contracts.Presenter
 {
     private Contracts.View productListView;
     private Repository repository;
+    private CompositeDisposable compositeDisposable;
 
     ProductListPresenter(Contracts.View productListView, Repository repository)
     {
         super();
         this.productListView = productListView;
         this.repository = repository;
+        compositeDisposable = new CompositeDisposable();
     }
 
     @Override
@@ -42,6 +45,8 @@ public class ProductListPresenter implements Contracts.Presenter
                 subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(productListView::populateData, productListView::onError);
+        compositeDisposable.add(disposable);
+
     }
 
     @Override
@@ -78,5 +83,11 @@ public class ProductListPresenter implements Contracts.Presenter
     public void hideLoading()
     {
         productListView.hideLoading();
+    }
+
+    @Override
+    public void onDetach()
+    {
+        compositeDisposable.clear();
     }
 }

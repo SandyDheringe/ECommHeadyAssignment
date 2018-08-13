@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.heady.ecommerce.R;
@@ -18,12 +19,13 @@ import butterknife.ButterKnife;
 
 /**
  * Cart Adapter
+ *
  * @author SandeepD
  */
 class CartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 {
     private Context context;
-    private List<CartDetail> productDetailsList;
+    private List<CartDetail> cartDetailList;
     private CartSummary cartSummary;
     private LayoutInflater layoutInflater;
     private Contracts.View cartView;
@@ -34,7 +36,7 @@ class CartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     CartAdapter(Context context, List<CartDetail> results, CartSummary cartSummary, Contracts.View cartView)
     {
         this.context = context;
-        productDetailsList = results;
+        cartDetailList = results;
         layoutInflater = LayoutInflater.from(context);
         this.cartView = cartView;
         this.cartSummary = cartSummary;
@@ -42,20 +44,20 @@ class CartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     public void addAll(List<CartDetail> results)
     {
-        productDetailsList.addAll(results);
+        cartDetailList.addAll(results);
         notifyDataSetChanged();
     }
 
     public List<CartDetail> getList()
     {
-        return productDetailsList;
+        return cartDetailList;
     }
 
     public void clear()
     {
-        if (productDetailsList != null)
+        if (cartDetailList != null)
         {
-            productDetailsList.clear();
+            cartDetailList.clear();
         }
     }
 
@@ -78,7 +80,7 @@ class CartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     @Override
     public int getItemViewType(int position)
     {
-        if (position == productDetailsList.size())
+        if (position == cartDetailList.size())
             return VIEW_CART_SUMMARY;
         else
             return VIEW_PRODUCT_ITEM;
@@ -88,7 +90,7 @@ class CartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position)
     {
         if (holder instanceof CartProductViewHolder)
-            ((CartProductViewHolder) holder).bindViews(productDetailsList.get(position));
+            ((CartProductViewHolder) holder).bindViews(cartDetailList.get(position));
         else if (holder instanceof CartSummaryViewHolder)
             ((CartSummaryViewHolder) holder).bindViews(cartSummary);
     }
@@ -96,7 +98,7 @@ class CartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     @Override
     public int getItemCount()
     {
-        return productDetailsList.size() + 1;
+        return cartDetailList.size() + 1;
     }
 
     class CartProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
@@ -112,12 +114,14 @@ class CartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         TextView tvQuantity;
         @BindView(R.id.tv_price)
         TextView tvPrice;
+        @BindView(R.id.btn_remove)
+        Button btnRemove;
 
         CartProductViewHolder(View itemView)
         {
             super(itemView);
             ButterKnife.bind(this, itemView);
-            itemView.setOnClickListener(this);
+            btnRemove.setOnClickListener(this);
         }
 
         void bindViews(CartDetail result)
@@ -149,7 +153,7 @@ class CartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         @Override
         public void onClick(View v)
         {
-            // cartView.onCategoryItemSelected(productDetailsList.get(getAdapterPosition()));
+            cartView.removeFromCart(cartDetailList.get(getAdapterPosition()));
         }
     }
 

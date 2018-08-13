@@ -216,4 +216,11 @@ public class ProductListFragment extends BaseFragment implements Contracts.View
         bottomSheetFragment.setTargetFragment(this, 0);
         bottomSheetFragment.show(getActivity().getSupportFragmentManager(), bottomSheetFragment.getTag());
     }
+
+    @Override
+    public void onDestroy()
+    {
+        super.onDestroy();
+        presenter.onDetach();
+    }
 }

@@ -22,10 +22,18 @@ public class CartActivity extends BaseToolBarActivity
         setContentView(R.layout.activity_cart);
         if (getSupportActionBar() != null)
         {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
         ActivityUtil.replaceFragment(this, null, CartFragment.newInstance(), false, R.id.content_frame);
 
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        if (getSupportActionBar() != null)
+            getSupportActionBar().setTitle(R.string.shopping_cart);
     }
 
 }

@@ -39,5 +39,7 @@ public interface Contracts
         void showLoading();
 
         void hideLoading();
+        void onDetach();
+
     }
 }

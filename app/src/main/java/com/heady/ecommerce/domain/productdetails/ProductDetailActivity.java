@@ -25,7 +25,7 @@ public class ProductDetailActivity extends BaseToolBarActivity
         setContentView(R.layout.activity_product_detail);
         if (getSupportActionBar() != null)
         {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
         ProductDetails productDetails = getIntent().getExtras().getParcelable(ProductDetailFragment.PARAM_PRODUCT_DETAIL);
@@ -37,5 +37,13 @@ public class ProductDetailActivity extends BaseToolBarActivity
     {
         getMenuInflater().inflate(R.menu.app_menu, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        if (getSupportActionBar() != null)
+            getSupportActionBar().setTitle(R.string.product_details);
     }
 }

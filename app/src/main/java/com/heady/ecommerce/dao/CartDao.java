@@ -32,4 +32,7 @@ public interface CartDao
             " Product.id = Cart.prod_id AND Variant.variant_id = Cart.var_id AND" +
             " Tax.name = ProductTax.tax_name AND ProductTax.product_id = Product.id ")
     Single<List<CartDetail>> getCartDetails();
+
+    @Query("DELETE FROM cart WHERE Cart.cart_id=:cartId")
+    void removeFromCart(int cartId);
 }

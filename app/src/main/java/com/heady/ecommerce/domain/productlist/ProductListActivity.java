@@ -24,7 +24,7 @@ public class ProductListActivity extends BaseToolBarActivity
         setContentView(R.layout.activity_product_list);
         if (getSupportActionBar() != null)
         {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
         CategoryDTO categoryDTO = getIntent().getExtras().getParcelable(ProductListFragment.STR_CATEGORY);
@@ -37,5 +37,13 @@ public class ProductListActivity extends BaseToolBarActivity
     {
         getMenuInflater().inflate(R.menu.app_menu, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        if (getSupportActionBar() != null)
+            getSupportActionBar().setTitle(R.string.product_list);
     }
 }

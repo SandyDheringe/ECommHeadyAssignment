@@ -6,7 +6,11 @@ import com.heady.ecommerce.model.roomentities.relation.CartDetail;
 
 import java.util.List;
 
+import io.reactivex.Completable;
+import io.reactivex.CompletableObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -16,22 +20,25 @@ import io.reactivex.schedulers.Schedulers;
  */
 class CartPresenter implements Contracts.Presenter
 {
-    private Contracts.View categoryView;
+    private Contracts.View cartView;
     private Repository repository;
     private CartSummary cartSummary;
+    private CompositeDisposable compositeDisposable;
 
-    CartPresenter(Contracts.View categoryView, Repository repository)
+    CartPresenter(Contracts.View cartView, Repository repository)
     {
         super();
-        this.categoryView = categoryView;
+        this.cartView = cartView;
         this.repository = repository;
         cartSummary = new CartSummary();
+        compositeDisposable = new CompositeDisposable();
+
     }
 
     @Override
     public void init()
     {
-        categoryView.initView();
+        cartView.initView();
     }
 
     @Override
@@ -39,7 +46,7 @@ class CartPresenter implements Contracts.Presenter
     {
         showLoading();
 
-        repository.cardData().getCartDetails()
+        Disposable disposable = repository.cardData().getCartDetails()
                 .subscribeOn(Schedulers.io())
                 .map(cartDetails -> {
 
@@ -55,24 +62,58 @@ class CartPresenter implements Contracts.Presenter
                     return cartDetails;
                 })
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(this::onSuccess, categoryView::onError);
+                .subscribe(this::onSuccess, cartView::onError);
+        compositeDisposable.add(disposable);
+
     }
 
     private void onSuccess(List<CartDetail> cartDetails)
     {
-        categoryView.populateData(cartDetails, cartSummary);
+        cartView.populateData(cartDetails, cartSummary);
     }
 
 
     @Override
     public void showLoading()
     {
-        categoryView.showLoading();
+        cartView.showLoading();
     }
 
     @Override
     public void hideLoading()
     {
-        categoryView.hideLoading();
+        cartView.hideLoading();
+    }
+
+    public void removeFromCart(int cartId)
+    {
+        Completable.fromAction(() -> repository.cardData().removeFromCart(cartId)).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new CompletableObserver()
+                {
+                    @Override
+                    public void onSubscribe(Disposable d)
+                    {
+                    }
+
+                    @Override
+                    public void onComplete()
+                    {
+                        cartView.productRemoved();
+                        fetchCartProductDetails();
+                    }
+
+                    @Override
+                    public void onError(Throwable e)
+                    {
+                        cartView.onError(e);
+                    }
+                });
+    }
+
+    @Override
+    public void onDetach()
+    {
+        compositeDisposable.clear();
     }
 }

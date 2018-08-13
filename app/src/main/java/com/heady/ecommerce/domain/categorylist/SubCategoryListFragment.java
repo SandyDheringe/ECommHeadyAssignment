@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import com.heady.ecommerce.BaseActivity;
 import com.heady.ecommerce.BaseApplication;
 import com.heady.ecommerce.BaseFragment;
 import com.heady.ecommerce.R;
@@ -81,6 +82,9 @@ public class SubCategoryListFragment extends BaseFragment implements Contracts.V
                 .newCategoryComponent(new CategoryModule(this))
                 .inject(this);
         categoryDTO = getArguments().getParcelable(STR_CATEGORY);
+
+        if (((BaseActivity) getActivity()).getSupportActionBar() != null)
+            ((BaseActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 
@@ -178,6 +182,13 @@ public class SubCategoryListFragment extends BaseFragment implements Contracts.V
         progressBar.setVisibility(View.GONE);
         tvInfo.setVisibility(View.GONE);
         rvCategoryList.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onDestroy()
+    {
+        super.onDestroy();
+        presenter.onDetach();
     }
 
 }

@@ -101,6 +101,15 @@ public class CategoryListFragment extends BaseFragment implements Contracts.View
     }
 
     @Override
+    public void onResume()
+    {
+        super.onResume();
+
+        if (((BaseActivity) getActivity()).getSupportActionBar() != null)
+            ((BaseActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+    }
+
+    @Override
     public void onDestroyView()
     {
         super.onDestroyView();
@@ -144,6 +153,7 @@ public class CategoryListFragment extends BaseFragment implements Contracts.View
         }
     }
 
+
     @Override
     public void onCategoryItemSelected(CategoryDTO categoryDTO)
     {
@@ -178,6 +188,11 @@ public class CategoryListFragment extends BaseFragment implements Contracts.View
     @Override
     public void populateSubCategories(List<CategoryGroup> categoryGroups)
     {
-
+    }
+    @Override
+    public void onDestroy()
+    {
+        super.onDestroy();
+        presenter.onDetach();
     }
 }

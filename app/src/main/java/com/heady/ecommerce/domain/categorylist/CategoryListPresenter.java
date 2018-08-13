@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
@@ -33,7 +34,7 @@ import io.reactivex.schedulers.Schedulers;
  *
  * @author SandeepD
  */
-class CategoryListPresenter implements Contracts.Presenter
+public class CategoryListPresenter implements Contracts.Presenter
 {
     private Contracts.View categoryView;
     private ApiService apiService;
@@ -41,13 +42,16 @@ class CategoryListPresenter implements Contracts.Presenter
     private List<Category> parentCategoryList;
     private List<CategoryAndMapping> childCategoryList;
     private int parentCategoryId;
+    private CompositeDisposable compositeDisposable;
 
-    CategoryListPresenter(Contracts.View categoryView, ApiService apiService, Repository repository)
+    public CategoryListPresenter(Contracts.View categoryView, ApiService apiService, Repository repository)
     {
         super();
         this.categoryView = categoryView;
         this.apiService = apiService;
         this.repository = repository;
+        compositeDisposable = new CompositeDisposable();
+
     }
 
     @Override
@@ -67,6 +71,7 @@ class CategoryListPresenter implements Contracts.Presenter
                         categoryList != null && categoryList.size() != 0)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::fetchData, categoryView::onError);
+        compositeDisposable.add(disposable);
     }
 
     private void fetchData(boolean isFetched)
@@ -93,6 +98,9 @@ class CategoryListPresenter implements Contracts.Presenter
                 })
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(categoryView::populateData, categoryView::onError);
+
+        compositeDisposable.add(disposable);
+
     }
 
     private void fetchDataFromServer()
@@ -104,6 +112,9 @@ class CategoryListPresenter implements Contracts.Presenter
                 })
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::dataFetched, categoryView::onError);
+
+        compositeDisposable.add(disposable);
+
     }
 
     private void dataFetched(List<CategoryDTO> categoryDTOS)
@@ -199,6 +210,8 @@ class CategoryListPresenter implements Contracts.Presenter
                 subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::parentCategories, categoryView::onError);
+        compositeDisposable.add(disposable);
+
     }
 
 
@@ -210,6 +223,8 @@ class CategoryListPresenter implements Contracts.Presenter
                 subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::childCategoryData, categoryView::onError);
+        compositeDisposable.add(disposable);
+
 
     }
 
@@ -240,5 +255,12 @@ class CategoryListPresenter implements Contracts.Presenter
 
         }
         categoryView.populateSubCategories(categoryGroups);
+    }
+
+
+    @Override
+    public void onDetach()
+    {
+        compositeDisposable.clear();
     }
 }

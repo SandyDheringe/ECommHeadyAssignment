@@ -9,6 +9,7 @@
     <string name="please_wait">Please wait</string>
     <string name="internet_slow_or_disconnected">No internet available or very slow.</string>
     <string name="something_went_wrong">Something went wrong.Please try again.</string>
+    <string name="removed_from_cart">Product Removed From Cart</string>
     <string name="product_already_in_cart">Product already in cart</string>
     <string name="str_cart">Cart</string>
     <string name="please_wait_while_we_fetch_data">Please wait, while we fetch data</string>

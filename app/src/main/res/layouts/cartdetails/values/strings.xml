@@ -25,4 +25,7 @@
     <string name="str_shared">Shared by %d Peoples</string>
     <string name="str_viewed">Viewed by %d Peoples</string>
     <string name="no_item_in_cart">No Item in Cart</string>
+    <string name="shopping_cart">Shopping Cart</string>
+    <string name="product_details">Product Details</string>
+    <string name="product_list">Product List</string>
 </resources>

@@ -25,7 +25,9 @@ interface Contracts
 
         void hideLoading();
 
-        void removeFromCart();
+        void removeFromCart(CartDetail cartDetail);
+
+        void productRemoved();
     }
 
     interface Presenter
@@ -38,5 +40,6 @@ interface Contracts
 
         void hideLoading();
 
+        void onDetach();
     }
 }

@@ -81,6 +81,7 @@
             android:background="@color/colorSeparator" />
 
         <Button
+            android:id="@+id/btn_remove"
             style="@style/text_medium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

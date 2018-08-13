@@ -30,6 +30,14 @@ public class CategoryListActivity extends BaseToolBarActivity
     }
 
     @Override
+    protected void onResume()
+    {
+        super.onResume();
+        if (getSupportActionBar() != null)
+            getSupportActionBar().setTitle(R.string.app_name);
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
         getMenuInflater().inflate(R.menu.app_menu, menu);

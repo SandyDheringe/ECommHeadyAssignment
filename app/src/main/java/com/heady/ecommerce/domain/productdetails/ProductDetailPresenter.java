@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import io.reactivex.Completable;
 import io.reactivex.CompletableObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
@@ -23,12 +24,15 @@ public class ProductDetailPresenter implements Contracts.Presenter
 {
     private Contracts.View productListView;
     private Repository repository;
+    private CompositeDisposable compositeDisposable;
 
     ProductDetailPresenter(Contracts.View productListView, Repository repository)
     {
         super();
         this.productListView = productListView;
         this.repository = repository;
+        compositeDisposable = new CompositeDisposable();
+
     }
 
     @Override
@@ -53,6 +57,8 @@ public class ProductDetailPresenter implements Contracts.Presenter
                 })
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(productListView::onVariantFetched, productListView::onError);
+
+        compositeDisposable.add(disposable);
     }
 
     @Override
@@ -99,5 +105,12 @@ public class ProductDetailPresenter implements Contracts.Presenter
     public void hideLoading()
     {
         productListView.hideLoading();
+    }
+
+
+    @Override
+    public void onDetach()
+    {
+        compositeDisposable.clear();
     }
 }
