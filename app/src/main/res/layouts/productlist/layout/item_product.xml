@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="1dp"
-    android:gravity="center_horizontal"
     android:background="@android:color/white"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="@dimen/padding_x">
 
@@ -17,25 +17,40 @@
         android:src="@drawable/template_image" />
 
     <TextView
+        android:layout_marginStart="@dimen/padding_x"
+        android:layout_marginEnd="@dimen/padding_x"
         android:id="@+id/tv_product_name"
         style="@style/text_small"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tool:text="Jeans" />
 
     <TextView
+        android:layout_marginStart="@dimen/padding_x"
+        android:layout_marginEnd="@dimen/padding_x"
         android:id="@+id/tv_product_price"
         style="@style/text_small_bold"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tool:text="Rs. 2500" />
 
     <TextView
+        android:layout_marginStart="@dimen/padding_x"
+        android:layout_marginEnd="@dimen/padding_x"
         android:id="@+id/tv_product_size"
         style="@style/text_small"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tool:text="Size: 42" />
+
+    <TextView
+        android:layout_marginStart="@dimen/padding_x"
+        android:layout_marginEnd="@dimen/padding_x"
+        android:id="@+id/tv_product_color"
+        style="@style/text_small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tool:text="color: RED" />
 
 
 </LinearLayout>

@@ -144,6 +144,10 @@ public class ProductDetailFragment extends BaseFragment implements Contracts.Vie
     @Override
     public void initView()
     {
+
+        btnAddToCart.setText(R.string.add_to_cart);
+        btnAddToCart.setTag(null);
+
         tvProductName.setText(productDetails.getProductName());
         tvPrice.setText(getString(R.string.str_rs, productDetails.getPrice()));
 
@@ -215,6 +219,8 @@ public class ProductDetailFragment extends BaseFragment implements Contracts.Vie
     {
         btnAddToCart.setText(R.string.go_to_cart);
         btnAddToCart.setTag(true);
+        Snackbar.make(tvInfo, R.string.product_added, Snackbar.LENGTH_LONG).show();
+
     }
 
     @Override

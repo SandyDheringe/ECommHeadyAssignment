@@ -28,4 +28,5 @@
     <string name="shopping_cart">Shopping Cart</string>
     <string name="product_details">Product Details</string>
     <string name="product_list">Product List</string>
+    <string name="product_added">Product added successfully</string>
 </resources>

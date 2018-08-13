@@ -88,6 +88,8 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         TextView tvProductPrice;
         @BindView(R.id.tv_product_size)
         TextView tvProductSize;
+        @BindView(R.id.tv_product_color)
+        TextView tvProductColor;
 
         ProductListViewHolder(View itemView)
         {
@@ -102,9 +104,20 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             tvProductPrice.setText(context.getString(R.string.str_rs, result.getPrice()));
 
             if (result.getSize() != 0)
+            {
+                tvProductSize.setVisibility(View.VISIBLE);
                 tvProductSize.setText(context.getString(R.string.str_size, result.getSize()));
-            else if (result.getColor() != null)
-                tvProductSize.setText(context.getString(R.string.str_color, result.getColor()));
+            } else
+                tvProductSize.setVisibility(View.GONE);
+
+            if (result.getColor() != null)
+            {
+                tvProductColor.setVisibility(View.VISIBLE);
+                tvProductColor.setText(context.getString(R.string.str_color, result.getColor()));
+            } else
+            {
+                tvProductColor.setVisibility(View.GONE);
+            }
         }
 
         @Override
