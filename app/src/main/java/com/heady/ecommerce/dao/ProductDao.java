@@ -13,6 +13,11 @@ import java.util.List;
 
 import io.reactivex.Single;
 
+/**
+ * Product DAO
+ *
+ * @author SandeepD
+ */
 @Dao
 public interface ProductDao
 {

@@ -14,6 +14,11 @@ import butterknife.ButterKnife;
 
 import static android.view.animation.Animation.RELATIVE_TO_SELF;
 
+/**
+ * Parent category view holder.
+ *
+ * @author SandeepD
+ */
 public class ParentCategoryViewHolder extends GroupViewHolder
 {
     @BindView(R.id.tv_category_name)

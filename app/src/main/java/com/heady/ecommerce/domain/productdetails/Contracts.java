@@ -1,9 +1,10 @@
 package com.heady.ecommerce.domain.productdetails;
 
 import com.heady.ecommerce.model.roomentities.relation.ProductDetails; /**
- * @author shishank
+ * Contract for view and presenter
+ *
+ * @author SandeepD
  */
-
 public interface Contracts
 {
 
@@ -23,10 +24,6 @@ public interface Contracts
     interface Presenter
     {
         void init();
-
-        //void fetchProductByProductId(int productId);
-
-        boolean shouldUpdate();
 
         void showLoading();
 

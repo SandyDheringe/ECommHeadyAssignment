@@ -8,6 +8,11 @@ import com.heady.ecommerce.model.roomentities.Variant;
 
 import java.util.List;
 
+/**
+ * Variant DAO
+ *
+ * @author SandeepD
+ */
 @Dao
 public interface VariantDao
 {

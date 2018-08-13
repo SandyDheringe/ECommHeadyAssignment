@@ -17,26 +17,26 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * @author shishank
+ * Cart Adapter
+ * @author SandeepD
  */
-
 class CartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 {
     private Context context;
     private List<CartDetail> productDetailsList;
     private CartSummary cartSummary;
     private LayoutInflater layoutInflater;
-    private Contracts.View categoryView;
+    private Contracts.View cartView;
 
     public static final int VIEW_PRODUCT_ITEM = 0;
     public static final int VIEW_CART_SUMMARY = 1;
 
-    CartAdapter(Context context, List<CartDetail> results, CartSummary cartSummary, Contracts.View categoryView)
+    CartAdapter(Context context, List<CartDetail> results, CartSummary cartSummary, Contracts.View cartView)
     {
         this.context = context;
         productDetailsList = results;
         layoutInflater = LayoutInflater.from(context);
-        this.categoryView = categoryView;
+        this.cartView = cartView;
         this.cartSummary = cartSummary;
     }
 
@@ -149,14 +149,13 @@ class CartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         @Override
         public void onClick(View v)
         {
-            // categoryView.onCategoryItemSelected(productDetailsList.get(getAdapterPosition()));
+            // cartView.onCategoryItemSelected(productDetailsList.get(getAdapterPosition()));
         }
     }
 
 
     class CartSummaryViewHolder extends RecyclerView.ViewHolder
     {
-
         @BindView(R.id.tv_bag_total)
         TextView tvBagTotal;
         @BindView(R.id.tv_estimated_tax)

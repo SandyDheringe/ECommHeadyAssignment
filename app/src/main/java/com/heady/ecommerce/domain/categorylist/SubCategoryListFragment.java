@@ -18,8 +18,8 @@ import com.heady.ecommerce.BaseApplication;
 import com.heady.ecommerce.BaseFragment;
 import com.heady.ecommerce.R;
 import com.heady.ecommerce.domain.cartdetails.CartActivity;
-import com.heady.ecommerce.domain.categorylist.adapter.SubCategoryListAdapter;
 import com.heady.ecommerce.domain.categorylist.adapter.CategoryGroup;
+import com.heady.ecommerce.domain.categorylist.adapter.SubCategoryListAdapter;
 import com.heady.ecommerce.domain.productlist.ProductListActivity;
 import com.heady.ecommerce.domain.productlist.ProductListFragment;
 import com.heady.ecommerce.model.response.CategoryDTO;
@@ -33,9 +33,10 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
- * @author shishank
+ * Subcategory list fragment.
+ *
+ * @author sandeepD
  */
-
 public class SubCategoryListFragment extends BaseFragment implements Contracts.View
 {
 
@@ -145,7 +146,8 @@ public class SubCategoryListFragment extends BaseFragment implements Contracts.V
 
     @Override
     public void populateData(List<CategoryDTO> categoryGroupList)
-    {}
+    {
+    }
 
     @Override
     public void onCategoryItemSelected(CategoryDTO categoryDTO)

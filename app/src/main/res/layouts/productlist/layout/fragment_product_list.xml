@@ -9,12 +9,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:drawableLeft="@mipmap/ic_launcher"
+        android:drawableStart="@drawable/ic_action_sort"
         android:gravity="center_vertical"
-        android:padding="10dp"
-        android:text="SORT"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@android:color/black"
+        android:padding="@dimen/padding_x"
+        android:text="@string/sort"
+        style="@style/text_medium"
         android:visibility="gone" />
 
     <LinearLayout
@@ -48,7 +47,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/tv_sort"
-        android:layout_margin="@dimen/margin_x"
+        android:padding="@dimen/padding_x"
+        android:background="@color/colorSeparator"
         android:visibility="gone" />
 
 </RelativeLayout>

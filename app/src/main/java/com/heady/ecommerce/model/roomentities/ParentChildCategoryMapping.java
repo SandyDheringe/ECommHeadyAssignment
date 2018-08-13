@@ -4,6 +4,11 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
+/**
+ * ParentChildCategoryMapping entity.
+ *
+ * @author SandeepD
+ */
 @Entity(tableName = "ParentChildCategoryMapping")
 public class ParentChildCategoryMapping
 {

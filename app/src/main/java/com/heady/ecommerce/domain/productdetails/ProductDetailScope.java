@@ -3,10 +3,10 @@ package com.heady.ecommerce.domain.productdetails;
 import javax.inject.Scope;
 
 /**
- * Created by abhishek
- * on 18/12/17.
+ * Product details.
+ *
+ * @author SandeepD
  */
-
 @Scope
 @interface ProductDetailScope
 {

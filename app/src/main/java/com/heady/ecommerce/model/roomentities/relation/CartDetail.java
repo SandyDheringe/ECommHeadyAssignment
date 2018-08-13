@@ -7,6 +7,11 @@ import com.heady.ecommerce.model.roomentities.Product;
 import com.heady.ecommerce.model.roomentities.Tax;
 import com.heady.ecommerce.model.roomentities.Variant;
 
+/**
+ * cart details
+ *
+ * @author Sandeep
+ */
 public class CartDetail
 {
     @Embedded

@@ -6,7 +6,10 @@ import com.heady.ecommerce.model.roomentities.Tax;
 import java.util.List;
 
 import javax.inject.Inject;
-
+/**
+ * local data source.
+ * @author SandeepD
+ */
 public class LocalTaxData implements DataSource<Tax>
 {
 

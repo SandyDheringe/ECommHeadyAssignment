@@ -7,6 +7,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+/**
+ * local data source.
+ * @author SandeepD
+ */
 public class LocalParentChildCategoryMappingData implements DataSource<ParentChildCategoryMapping>
 {
 

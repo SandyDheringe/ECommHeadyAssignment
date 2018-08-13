@@ -12,7 +12,11 @@ import com.thoughtbot.expandablerecyclerview.viewholders.ChildViewHolder;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-
+/**
+ * Child category view holder.
+ *
+ * @author SandeepD
+ */
 public class ChildCategoryViewHolder extends ChildViewHolder implements View.OnClickListener
 {
     @BindView(R.id.tv_category_name)

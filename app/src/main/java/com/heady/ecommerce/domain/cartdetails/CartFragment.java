@@ -10,13 +10,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.heady.ecommerce.BaseApplication;
 import com.heady.ecommerce.BaseFragment;
 import com.heady.ecommerce.R;
-import com.heady.ecommerce.api.ApiService;
 import com.heady.ecommerce.model.CartSummary;
 import com.heady.ecommerce.model.roomentities.relation.CartDetail;
 
@@ -30,12 +30,12 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
- * @author shishank
+ * Cart Fragment.
+ *
+ * @author SandeepD
  */
-
 public class CartFragment extends BaseFragment implements Contracts.View
 {
-
     @BindView(R.id.rv_movie_list)
     RecyclerView rvCategoryList;
 
@@ -46,6 +46,9 @@ public class CartFragment extends BaseFragment implements Contracts.View
     AppCompatTextView tvInfo;
     @BindView(R.id.tv_total)
     TextView tvTotal;
+
+    @BindView(R.id.ll_summary)
+    LinearLayout llSummary;
     Unbinder unbinder;
 
     @Inject
@@ -53,11 +56,7 @@ public class CartFragment extends BaseFragment implements Contracts.View
 
     private LinearLayoutManager linearLayoutManager;
 
-    CartAdapter categoryAdapter;
-
-    @Inject
-    ApiService apiService;
-
+    private CartAdapter cartAdapter;
 
     public static CartFragment newInstance()
     {
@@ -108,7 +107,7 @@ public class CartFragment extends BaseFragment implements Contracts.View
     {
         linearLayoutManager = new LinearLayoutManager(getActivity());
         rvCategoryList.setLayoutManager(linearLayoutManager);
-        //categoryAdapter = new categoryAdapter(getContext(), this);
+        //cartAdapter = new cartAdapter(getContext(), this);
         //rvCategoryList.setAdapter(categoryListAdapter);
         presenter.fetchCartProductDetails();
     }
@@ -116,8 +115,8 @@ public class CartFragment extends BaseFragment implements Contracts.View
     @Override
     public void populateData(List<CartDetail> categoryGroupList, CartSummary cartSummary)
     {
-        categoryAdapter = new CartAdapter(getActivity(), categoryGroupList, cartSummary, this);
-        rvCategoryList.setAdapter(categoryAdapter);
+        cartAdapter = new CartAdapter(getActivity(), categoryGroupList, cartSummary, this);
+        rvCategoryList.setAdapter(cartAdapter);
         tvTotal.setText(getString(R.string.str_rs, cartSummary.getTotalPayable()));
         hideLoading();
     }
@@ -132,6 +131,7 @@ public class CartFragment extends BaseFragment implements Contracts.View
     @Override
     public void showLoading()
     {
+        llSummary.setVisibility(View.GONE);
         rvCategoryList.setVisibility(View.GONE);
         progressBar.setVisibility(View.VISIBLE);
         tvInfo.setVisibility(View.VISIBLE);
@@ -143,17 +143,17 @@ public class CartFragment extends BaseFragment implements Contracts.View
         progressBar.setVisibility(View.GONE);
         tvInfo.setVisibility(View.GONE);
         rvCategoryList.setVisibility(View.VISIBLE);
+        llSummary.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void removeFromCart()
     {
-
     }
 
     @OnClick(R.id.ll_total)
     public void showTotalDetails()
     {
-        rvCategoryList.smoothScrollToPosition(categoryAdapter.getItemCount());
+        rvCategoryList.smoothScrollToPosition(cartAdapter.getItemCount());
     }
 }

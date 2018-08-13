@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,44 +7,41 @@
     android:padding="10dp">
 
     <TextView
+        style="@style/text_small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sort by"
-        android:textColor="@android:color/black" />
+        android:text="@string/sort_by" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="5dp"
-        android:background="#c5bcbc" />
+        android:background="@color/colorSeparator" />
 
     <TextView
         android:id="@+id/tv_most_viewed"
+        style="@style/text_medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="7dp"
-        android:layout_marginTop="7dp"
-        android:text="Most Viewed"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/black" />
+        android:paddingBottom="@dimen/padding_x"
+        android:paddingTop="@dimen/padding_x"
+        android:text="@string/most_viewed" />
 
     <TextView
         android:id="@+id/tv_most_ordered"
+        style="@style/text_medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="7dp"
-        android:layout_marginTop="7dp"
-        android:text="Most Ordered"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/black" />
+        android:paddingBottom="@dimen/padding_x"
+        android:paddingTop="@dimen/padding_x"
+        android:text="@string/most_ordered" />
 
     <TextView
         android:id="@+id/tv_most_shared"
+        style="@style/text_medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="7dp"
-        android:layout_marginTop="7dp"
-        android:text="Most Shared"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/black" />
+        android:paddingBottom="@dimen/padding_x"
+        android:paddingTop="@dimen/padding_x"
+        android:text="@string/most_shared" />
 </LinearLayout>

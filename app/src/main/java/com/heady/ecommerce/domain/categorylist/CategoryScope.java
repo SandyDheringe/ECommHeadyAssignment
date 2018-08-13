@@ -3,10 +3,10 @@ package com.heady.ecommerce.domain.categorylist;
 import javax.inject.Scope;
 
 /**
- * Created by abhishek
- * on 18/12/17.
+ * Category scope
+ *
+ * @author SandeepD
  */
-
 @Scope
 @interface CategoryScope
 {

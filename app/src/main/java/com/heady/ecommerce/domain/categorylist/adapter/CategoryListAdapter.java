@@ -17,9 +17,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * @author shishank
+ * Category list adapter
+ *
+ * @author SandeepD
  */
-
 public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapter.CategoryViewHolder>
 {
     private Context context;

@@ -5,6 +5,11 @@ import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 
 import java.util.List;
 
+/**
+ * Category group
+ *
+ * @author SandeepD
+ */
 public class CategoryGroup extends ExpandableGroup<CategoryDTO>
 {
     private CategoryDTO parentCategory;

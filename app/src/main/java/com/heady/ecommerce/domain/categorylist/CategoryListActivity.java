@@ -7,7 +7,13 @@ import com.heady.ecommerce.BaseToolBarActivity;
 import com.heady.ecommerce.R;
 import com.heady.ecommerce.util.ActivityUtil;
 
-
+/**
+ * This activity shows the categories
+ * .
+ * This is in all separate module which may need to call from various places.
+ *
+ * @author SandeepD
+ */
 public class CategoryListActivity extends BaseToolBarActivity
 {
 

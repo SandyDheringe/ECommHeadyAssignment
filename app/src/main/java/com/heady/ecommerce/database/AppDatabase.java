@@ -21,6 +21,8 @@ import com.heady.ecommerce.model.roomentities.Tax;
 import com.heady.ecommerce.model.roomentities.Variant;
 
 /**
+ * Room database for storing api response data.
+ *
  * @author sandeepD
  */
 @Database(entities = {Category.class, Product.class, Tax.class, Variant.class, ProductTax.class,

@@ -13,6 +13,11 @@ import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 
 import java.util.List;
 
+/**
+ * Sub category adapter
+ *
+ * @author SandeepD
+ */
 public class SubCategoryListAdapter extends ExpandableRecyclerViewAdapter<ParentCategoryViewHolder, ChildCategoryViewHolder>
 {
 

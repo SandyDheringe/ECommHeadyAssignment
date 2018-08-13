@@ -7,10 +7,10 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
- * Created by abhishek
- * on 14/12/17.
+ * Product list module
+ *
+ * @author SandeepD
  */
-
 @Module
 public class ProductListModule
 {

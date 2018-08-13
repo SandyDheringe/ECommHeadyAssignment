@@ -5,6 +5,11 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
 
+/**
+ * Product entity.
+ *
+ * @author SandeepD
+ */
 @ForeignKey(entity = Category.class, parentColumns = "category_id", childColumns = "id")
 @Entity(tableName = "Product")
 public class Product

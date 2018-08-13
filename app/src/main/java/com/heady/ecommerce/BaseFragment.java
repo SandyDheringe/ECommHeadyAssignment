@@ -5,7 +5,11 @@ import android.support.v4.app.Fragment;
 
 import com.heady.ecommerce.dialog.LoadingDialog;
 
-
+/**
+ * Base fragment
+ *
+ * @author sandeepD
+ */
 public abstract class BaseFragment extends Fragment
 {
 

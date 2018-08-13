@@ -8,7 +8,13 @@ import com.heady.ecommerce.R;
 import com.heady.ecommerce.model.roomentities.relation.ProductDetails;
 import com.heady.ecommerce.util.ActivityUtil;
 
-
+/**
+ * This activity shows the product details.
+ *
+ * This is in all separate module which may need to call from various places.
+ *
+ * @author SandeepD
+ */
 public class ProductDetailActivity extends BaseToolBarActivity
 {
 

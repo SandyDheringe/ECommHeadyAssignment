@@ -5,9 +5,8 @@ import dagger.Subcomponent;
 
 /**
  * Created by SandeepD
- * on 15/05/18.
  * <p>
- * Custom scope for category screen, this is a child component of App Component
+ * Custom scope for cart screen, this is a child component of App Component
  * and needs to be smaller in size
  */
 @CartScope

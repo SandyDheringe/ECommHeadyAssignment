@@ -17,13 +17,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * @author shishank
+ * Product list adapter
+ *
+ * @author SandeepD
  */
-
-public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.CategoryViewHolder>
+public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.ProductListViewHolder>
 {
     private Context context;
-
     private List<ProductDetails> productDetailsList;
     private LayoutInflater layoutInflater;
     private Contracts.View categoryView;
@@ -62,14 +62,14 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     }
 
     @Override
-    public CategoryViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+    public ProductListViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
-        return new CategoryViewHolder(layoutInflater.inflate(R.layout.item_product, parent,
+        return new ProductListViewHolder(layoutInflater.inflate(R.layout.item_product, parent,
                 false));
     }
 
     @Override
-    public void onBindViewHolder(CategoryViewHolder holder, int position)
+    public void onBindViewHolder(ProductListViewHolder holder, int position)
     {
         holder.bindViews(productDetailsList.get(position));
     }
@@ -80,7 +80,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         return productDetailsList.size();
     }
 
-    class CategoryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
+    class ProductListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         @BindView(R.id.tv_product_name)
         TextView tvProductName;
@@ -89,7 +89,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         @BindView(R.id.tv_product_size)
         TextView tvProductSize;
 
-        CategoryViewHolder(View itemView)
+        ProductListViewHolder(View itemView)
         {
             super(itemView);
             ButterKnife.bind(this, itemView);
@@ -99,8 +99,12 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         void bindViews(ProductDetails result)
         {
             tvProductName.setText(result.getProductName());
-            tvProductPrice.setText(String.format("Price: %d", result.getPrice()));
-            tvProductSize.setText(String.format("MO: %d, MV: %d, MS: %d", result.getMostOrdered(), result.getMostViewed(), result.getMostShared()));
+            tvProductPrice.setText(context.getString(R.string.str_rs, result.getPrice()));
+
+            if (result.getSize() != 0)
+                tvProductSize.setText(context.getString(R.string.str_size, result.getSize()));
+            else if (result.getColor() != null)
+                tvProductSize.setText(context.getString(R.string.str_color, result.getColor()));
         }
 
         @Override

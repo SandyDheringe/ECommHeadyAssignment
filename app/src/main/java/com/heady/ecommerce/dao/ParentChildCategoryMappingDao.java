@@ -8,6 +8,11 @@ import com.heady.ecommerce.model.roomentities.ParentChildCategoryMapping;
 
 import java.util.List;
 
+/**
+ * Parent Child category mapping DAO
+ *
+ * @author SandeepD
+ */
 @Dao
 public interface ParentChildCategoryMappingDao
 {

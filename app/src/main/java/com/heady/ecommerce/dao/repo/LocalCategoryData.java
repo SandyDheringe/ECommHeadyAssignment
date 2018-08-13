@@ -2,7 +2,7 @@ package com.heady.ecommerce.dao.repo;
 
 import com.heady.ecommerce.database.AppDatabase;
 import com.heady.ecommerce.model.roomentities.Category;
-import com.heady.ecommerce.model.roomentities.relation.CategoryAndMappingNew;
+import com.heady.ecommerce.model.roomentities.relation.CategoryAndMapping;
 
 import java.util.List;
 
@@ -43,17 +43,12 @@ public class LocalCategoryData implements DataSource<Category>
         return appDatabase.categoryDataDao().getParentCategories();
     }
 
-    public Single<List<Category>> getChildCategories(int categoryId)
-    {
-        return appDatabase.categoryDataDao().getChildCategories(categoryId);
-    }
-
     public Single<List<Category>> getParentSubCategoriesByParentCategoryId(int parentCategoryId)
     {
         return appDatabase.categoryDataDao().getParentSubCategoriesByParentCategoryId(parentCategoryId);
     }
 
-    public Single<List<CategoryAndMappingNew>> getChildSubCategoriesByParentCategoryId(int parentCategoryId)
+    public Single<List<CategoryAndMapping>> getChildSubCategoriesByParentCategoryId(int parentCategoryId)
     {
         return appDatabase.categoryDataDao().getChildSubCategoriesByParentCategoryId(parentCategoryId);
     }

@@ -23,8 +23,8 @@ import com.heady.ecommerce.api.ApiService;
 import com.heady.ecommerce.domain.cartdetails.CartActivity;
 import com.heady.ecommerce.domain.productdetails.ProductDetailActivity;
 import com.heady.ecommerce.domain.productdetails.ProductDetailFragment;
-import com.heady.ecommerce.model.roomentities.relation.ProductDetails;
 import com.heady.ecommerce.model.response.CategoryDTO;
+import com.heady.ecommerce.model.roomentities.relation.ProductDetails;
 
 import java.util.List;
 
@@ -36,9 +36,10 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
- * @author shishank
+ * Product list fragment
+ *
+ * @author SandeepD
  */
-
 public class ProductListFragment extends BaseFragment implements Contracts.View
 {
     @BindView(R.id.rv_movie_list)
@@ -63,10 +64,7 @@ public class ProductListFragment extends BaseFragment implements Contracts.View
 
     private GridLayoutManager gridLayoutManager;
 
-    ProductListAdapter productListAdapter;
-
-    @Inject
-    ApiService apiService;
+    private ProductListAdapter productListAdapter;
 
     public static final String STR_CATEGORY = "str_category";
 
@@ -139,7 +137,7 @@ public class ProductListFragment extends BaseFragment implements Contracts.View
     @Override
     public void initView()
     {
-        gridLayoutManager = new GridLayoutManager(getActivity(), 3);
+        gridLayoutManager = new GridLayoutManager(getActivity(), 2);
         rvCategoryList.setLayoutManager(gridLayoutManager);
         productListAdapter = new ProductListAdapter(getActivity(), this);
         rvCategoryList.setAdapter(productListAdapter);

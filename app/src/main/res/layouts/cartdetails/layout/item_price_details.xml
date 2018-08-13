@@ -4,38 +4,36 @@
     xmlns:tool="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/margin_4x"
     android:layout_marginLeft="@dimen/margin_x2"
     android:layout_marginRight="@dimen/margin_x2"
     android:layout_marginTop="@dimen/margin_x2"
-    android:layout_marginBottom="@dimen/margin_4x"
-    app:cardCornerRadius="4dp">
+    app:cardCornerRadius="@dimen/radius_x2">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:padding="@dimen/padding_x">
 
         <RelativeLayout
-            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_x2">
 
             <TextView
+                style="@style/text_small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/bag_total"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="@android:color/black" />
+                android:text="@string/bag_total" />
 
             <TextView
                 android:id="@+id/tv_bag_total"
+                style="@style/text_small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="@android:color/black"
                 tool:text="Rs. 500" />
 
         </RelativeLayout>
@@ -43,54 +41,48 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="@dimen/margin_x">
 
             <TextView
+                style="@style/text_small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/estimated_tax"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="@android:color/black" />
+                android:text="@string/estimated_tax" />
 
             <TextView
                 android:id="@+id/tv_estimated_tax"
+                style="@style/text_small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="@android:color/black"
                 tool:text="Rs. 500" />
 
         </RelativeLayout>
 
         <View
-            android:layout_marginTop="8dp"
             android:layout_width="wrap_content"
             android:layout_height="1dp"
-            android:background="#b4b2b2" />
+            android:layout_marginTop="@dimen/margin_x"
+            android:background="@color/colorSeparator" />
 
         <RelativeLayout
-            android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
+            android:layout_marginBottom="@dimen/margin_x2"
+            android:layout_marginTop="@dimen/margin_x">
 
             <TextView
+                style="@style/text_small_bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/total_payable"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="@android:color/black"
-                android:textStyle="bold" />
+                android:text="@string/total_payable" />
 
             <TextView
                 android:id="@+id/tv_total_payable"
+                style="@style/text_small_bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="@android:color/black"
-                android:textStyle="bold"
                 tool:text="Rs. 1000" />
 
         </RelativeLayout>

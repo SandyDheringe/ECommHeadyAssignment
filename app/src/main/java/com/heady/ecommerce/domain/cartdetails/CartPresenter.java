@@ -10,13 +10,13 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 /**
- * @author shishank
+ * Cart presenter.
+ *
+ * @author SandeepD
  */
-
 class CartPresenter implements Contracts.Presenter
 {
     private Contracts.View categoryView;
-    private boolean isUpdating;
     private Repository repository;
     private CartSummary cartSummary;
 
@@ -60,14 +60,7 @@ class CartPresenter implements Contracts.Presenter
 
     private void onSuccess(List<CartDetail> cartDetails)
     {
-        categoryView.populateData(cartDetails,cartSummary);
-    }
-
-
-    @Override
-    public boolean shouldUpdate()
-    {
-        return !isUpdating;
+        categoryView.populateData(cartDetails, cartSummary);
     }
 
 

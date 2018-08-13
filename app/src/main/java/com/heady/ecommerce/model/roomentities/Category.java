@@ -6,6 +6,11 @@ import android.arch.persistence.room.PrimaryKey;
 
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Category entity.
+ *
+ * @author SandeepD
+ */
 @Entity(tableName = "Category")
 public class Category
 {

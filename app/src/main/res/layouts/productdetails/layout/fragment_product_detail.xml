@@ -6,7 +6,7 @@
     android:background="@android:color/white"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="@dimen/padding_2x">
 
 
     <LinearLayout
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:gravity="center" />
 
-        <android.support.v7.widget.AppCompatTextView
+        <TextView
             android:id="@+id/tv_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,50 +46,45 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:contentDescription="@string/app_name"
             android:src="@mipmap/ic_launcher" />
 
         <TextView
             android:id="@+id/tv_product_name"
+            style="@style/text_medium_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
             tool:text="Product Name" />
 
         <TextView
             android:id="@+id/tv_price"
+            style="@style/text_medium_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
             tool:text="Rs. 5200" />
 
         <TextView
             android:id="@+id/tv_color"
+            style="@style/text_medium_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
             tool:text="Color" />
 
         <TextView
             android:id="@+id/tv_size"
+            style="@style/text_medium_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
             tool:text="Size" />
-
 
         <Button
             android:id="@+id/btn_add_to_cart"
-            android:layout_width="wrap_content"
+            style="@style/text_medium_bold"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add To cart" />
+            android:background="@color/colorPrimary"
+            android:text="@string/add_to_cart"
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
 </LinearLayout>

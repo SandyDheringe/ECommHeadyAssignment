@@ -1,16 +1,58 @@
 package com.heady.ecommerce.model.roomentities.relation;
 
-import android.arch.persistence.room.Embedded;
+import android.arch.persistence.room.ColumnInfo;
 
-import com.heady.ecommerce.model.roomentities.Category;
-import com.heady.ecommerce.model.roomentities.ParentChildCategoryMapping;
-
+/**
+ * Category and mapping details
+ *
+ * @author SandeepD
+ */
 public class CategoryAndMapping
 {
-    @Embedded
-    public Category category;
+    @ColumnInfo(name = "category_id")
+    private int categoryId;
+    @ColumnInfo(name = "category_name")
+    private String CategoryName;
+    @ColumnInfo(name = "parent_id")
+    private int parentId;
 
-    @Embedded
-    public ParentChildCategoryMapping parentChildCategoryMapping;
 
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (obj instanceof CategoryAndMapping)
+            return categoryId == ((CategoryAndMapping) obj).categoryId;
+        else
+            return super.equals(obj);
+    }
+
+    public int getCategoryId()
+    {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId)
+    {
+        this.categoryId = categoryId;
+    }
+
+    public String getCategoryName()
+    {
+        return CategoryName;
+    }
+
+    public void setCategoryName(String categoryName)
+    {
+        CategoryName = categoryName;
+    }
+
+    public int getParentId()
+    {
+        return parentId;
+    }
+
+    public void setParentId(int parentId)
+    {
+        this.parentId = parentId;
+    }
 }

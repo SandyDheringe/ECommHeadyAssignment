@@ -5,6 +5,11 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+/**
+ * product DTO
+ *
+ * @author SandeepD
+ */
 public class ProductDTO
 {
 	@SerializedName("id")

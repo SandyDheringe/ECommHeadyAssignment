@@ -8,13 +8,16 @@ import com.heady.ecommerce.model.roomentities.Variant;
 
 import java.util.List;
 
+/**
+ * Product and variant
+ *
+ * @author SandeepD
+ */
 public class ProductAndVariant
 {
     @Embedded
     public Product product;
 
     @Relation(parentColumn = "id", entityColumn = "product_id")
-
-//    @Embedded
     public List<Variant> variants;
 }

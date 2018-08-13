@@ -2,6 +2,11 @@ package com.heady.ecommerce.dao.repo;
 
 import java.util.List;
 
+/**
+ * @author SandeepD
+ * Base datasource
+ * @param <T>
+ */
 public interface DataSource<T>
 {
 

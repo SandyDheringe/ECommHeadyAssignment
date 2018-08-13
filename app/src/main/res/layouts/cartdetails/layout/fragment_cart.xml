@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:background="@android:color/white">
 
     <LinearLayout
@@ -13,8 +12,8 @@
         android:layout_alignParentBottom="true"
         android:background="@android:color/white"
         android:gravity="center_vertical"
-        android:padding="10dp"
-        android:visibility="visible"
+        android:padding="@dimen/padding_x"
+        android:visibility="gone"
         android:weightSum="7">
 
         <LinearLayout
@@ -24,25 +23,22 @@
             android:layout_weight="3"
             android:gravity="center_vertical"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="@dimen/padding_x">
 
             <TextView
                 android:id="@+id/tv_total"
+                style="@style/text_large_bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
-                android:text="Rs. 1234567"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@android:color/black"
-                android:textStyle="bold" />
+                tools:text="Rs. 1234567" />
 
             <TextView
+                style="@style/text_small_bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/view_details"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="@color/colorPrimary"
-                android:textStyle="bold" />
+                android:textColor="@color/colorPrimary" />
         </LinearLayout>
 
         <Button
@@ -70,7 +66,7 @@
             android:layout_height="wrap_content"
             android:gravity="center" />
 
-        <android.support.v7.widget.AppCompatTextView
+        <TextView
             android:id="@+id/tv_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,7 +84,7 @@
         android:layout_above="@id/ll_summary"
         android:background="#d6cfcf"
         android:padding="@dimen/padding_x"
-        android:visibility="visible"
+        android:visibility="gone"
         tools:listitem="@layout/item_cart_product_details" />
 
 </RelativeLayout>

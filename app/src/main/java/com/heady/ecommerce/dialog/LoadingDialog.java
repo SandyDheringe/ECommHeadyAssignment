@@ -10,7 +10,9 @@ import android.widget.TextView;
 
 import com.heady.ecommerce.R;
 
-
+/**
+ * @author SandeepD
+ */
 public class LoadingDialog extends DialogFragment
 {
 

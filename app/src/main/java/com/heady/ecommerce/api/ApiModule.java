@@ -19,6 +19,11 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * API module to fetch data from server.
+ *
+ * @author SandeepD
+ */
 @Module
 public class ApiModule
 {

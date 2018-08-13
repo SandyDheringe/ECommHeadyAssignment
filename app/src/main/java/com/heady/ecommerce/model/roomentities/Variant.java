@@ -7,6 +7,11 @@ import android.arch.persistence.room.PrimaryKey;
 
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Variant entity.
+ *
+ * @author SandeepD
+ */
 @ForeignKey(entity = Product.class, parentColumns = "id", childColumns = "product_id")
 @Entity(tableName = "Variant")
 public class Variant

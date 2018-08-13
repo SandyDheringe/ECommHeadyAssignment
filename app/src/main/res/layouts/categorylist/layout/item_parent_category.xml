@@ -14,9 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toStartOf="@id/iv_arrow"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        style="@style/text_medium_bold"
         android:textColor="@android:color/white"
-        android:textStyle="bold"
         tools:text="Category Name" />
 
     <ImageView

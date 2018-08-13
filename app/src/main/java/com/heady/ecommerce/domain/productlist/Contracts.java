@@ -5,9 +5,10 @@ import com.heady.ecommerce.model.roomentities.relation.ProductDetails;
 import java.util.List;
 
 /**
- * @author shishank
+ * Contract for view and presenter
+ *
+ * @author SandeepD
  */
-
 public interface Contracts
 {
 
@@ -26,6 +27,7 @@ public interface Contracts
         void hideLoading();
 
         void sortProduct(int criteria);
+
         List<ProductDetails> getProductList();
     }
 
@@ -35,8 +37,6 @@ public interface Contracts
 
         void fetchProductByCategory(int categoryId);
 
-        boolean shouldUpdate();
-
         void sortByMostViewed();
 
         void sortByMostOrdered();
@@ -44,7 +44,6 @@ public interface Contracts
         void sortByMostShared();
 
         void showLoading();
-
 
         void hideLoading();
     }

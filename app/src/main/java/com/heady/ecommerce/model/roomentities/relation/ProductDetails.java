@@ -6,6 +6,11 @@ import android.os.Parcelable;
 
 import java.util.Comparator;
 
+/**
+ * Product details
+ *
+ * @author SandeepD
+ */
 public class ProductDetails implements Parcelable
 {
     @ColumnInfo(name = "id")

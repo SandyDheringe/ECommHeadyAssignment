@@ -19,7 +19,7 @@ import com.heady.ecommerce.model.roomentities.ProductRanking;
 import com.heady.ecommerce.model.roomentities.ProductTax;
 import com.heady.ecommerce.model.roomentities.Tax;
 import com.heady.ecommerce.model.roomentities.Variant;
-import com.heady.ecommerce.model.roomentities.relation.CategoryAndMappingNew;
+import com.heady.ecommerce.model.roomentities.relation.CategoryAndMapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,17 +29,18 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 /**
- * @author shishank
+ * category list presenter.
+ *
+ * @author SandeepD
  */
-
 class CategoryListPresenter implements Contracts.Presenter
 {
     private Contracts.View categoryView;
     private ApiService apiService;
     private Repository repository;
-    List<Category> parentCategoryList;
-    List<CategoryAndMappingNew> childCategoryList;
-    int parentCategoryId;
+    private List<Category> parentCategoryList;
+    private List<CategoryAndMapping> childCategoryList;
+    private int parentCategoryId;
 
     CategoryListPresenter(Contracts.View categoryView, ApiService apiService, Repository repository)
     {
@@ -60,7 +61,7 @@ class CategoryListPresenter implements Contracts.Presenter
     {
         showLoading();
 
-        Disposable i = repository.categoryData().getCategories().
+        Disposable disposable= repository.categoryData().getCategories().
                 subscribeOn(Schedulers.io())
                 .map(categoryList ->
                         categoryList != null && categoryList.size() != 0)
@@ -68,7 +69,7 @@ class CategoryListPresenter implements Contracts.Presenter
                 .subscribe(this::fetchData, categoryView::onError);
     }
 
-    void fetchData(boolean isFetched)
+    private void fetchData(boolean isFetched)
     {
         if (!isFetched)
             fetchDataFromServer();
@@ -79,7 +80,7 @@ class CategoryListPresenter implements Contracts.Presenter
 
     private void fetchFromDatabase()
     {
-        Disposable i = repository.categoryData().getParentCategories().
+        Disposable disposable= repository.categoryData().getParentCategories().
                 subscribeOn(Schedulers.io())
                 .map(categoryList -> {
 
@@ -94,9 +95,9 @@ class CategoryListPresenter implements Contracts.Presenter
                 .subscribe(categoryView::populateData, categoryView::onError);
     }
 
-    void fetchDataFromServer()
+    private void fetchDataFromServer()
     {
-        apiService.getCategoryAndProductDetails().subscribeOn(Schedulers.io())
+       Disposable disposable= apiService.getCategoryAndProductDetails().subscribeOn(Schedulers.io())
                 .map(masterdataDTO -> {
                     saveData(masterdataDTO);
                     return masterdataDTO.getCategories();
@@ -194,25 +195,25 @@ class CategoryListPresenter implements Contracts.Presenter
     {
         this.parentCategoryId = parentCategoryId;
 
-        Disposable i = repository.categoryData().getParentSubCategoriesByParentCategoryId(parentCategoryId).
+        Disposable disposable = repository.categoryData().getParentSubCategoriesByParentCategoryId(parentCategoryId).
                 subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::parentCategories, categoryView::onError);
     }
 
 
-    void parentCategories(List<Category> categoryList)
+    private void parentCategories(List<Category> categoryList)
     {
         parentCategoryList = categoryList;
 
-        Disposable i = repository.categoryData().getChildSubCategoriesByParentCategoryId(parentCategoryId).
+        Disposable disposable= repository.categoryData().getChildSubCategoriesByParentCategoryId(parentCategoryId).
                 subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::childCategoryData, categoryView::onError);
 
     }
 
-    private void childCategoryData(List<CategoryAndMappingNew> categoryAndMappings)
+    private void childCategoryData(List<CategoryAndMapping> categoryAndMappings)
     {
         childCategoryList = categoryAndMappings;
 
@@ -223,7 +224,7 @@ class CategoryListPresenter implements Contracts.Presenter
             CategoryDTO parentCategoryDTO = new CategoryDTO(parentCategory.getCategoryId(), parentCategory.getCategoryName());
 
             List<CategoryDTO> childCategories = new ArrayList<>();
-            for (CategoryAndMappingNew categoryAndMappingNew : childCategoryList)
+            for (CategoryAndMapping categoryAndMappingNew : childCategoryList)
             {
                 if (parentCategory.getCategoryId() == categoryAndMappingNew.getParentId())
                 {

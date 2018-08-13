@@ -8,6 +8,11 @@ import com.heady.ecommerce.model.roomentities.Tax;
 
 import java.util.List;
 
+/**
+ * Tax DAO
+ *
+ * @author SandeepD
+ */
 @Dao
 public interface TaxDao
 {

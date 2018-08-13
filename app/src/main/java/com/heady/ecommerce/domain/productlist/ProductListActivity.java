@@ -8,7 +8,12 @@ import com.heady.ecommerce.R;
 import com.heady.ecommerce.model.response.CategoryDTO;
 import com.heady.ecommerce.util.ActivityUtil;
 
-
+/**
+ * This activity shows the product list.
+ * This is in all separate module which may need to call from various places.
+ *
+ * @author SandeepD
+ */
 public class ProductListActivity extends BaseToolBarActivity
 {
 
@@ -26,6 +31,7 @@ public class ProductListActivity extends BaseToolBarActivity
 
         ActivityUtil.replaceFragment(this, null, ProductListFragment.newInstance(categoryDTO), false, R.id.content_frame);
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {

@@ -2,7 +2,11 @@ package com.heady.ecommerce.model.response;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
+/**
+ * Product ranking DTO
+ *
+ * @author SandeepD
+ */
 public class ProductRankingDTO
 {
 	@SerializedName("id")

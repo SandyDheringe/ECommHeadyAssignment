@@ -7,6 +7,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
+/**
+ * activity Util class to replace fragment.
+ *
+ * @author SandeepD
+ */
 public class ActivityUtil
 {
 

@@ -4,6 +4,11 @@ import android.app.Application;
 
 import timber.log.Timber;
 
+/**
+ * Base application
+ *
+ * @author SandeepD
+ */
 public class BaseApplication extends Application
 {
     private AppComponent appComponent;

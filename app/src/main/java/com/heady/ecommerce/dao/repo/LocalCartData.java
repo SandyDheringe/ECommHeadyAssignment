@@ -10,6 +10,10 @@ import javax.inject.Inject;
 
 import io.reactivex.Single;
 
+/**
+ * local data source.
+ * @author SandeepD
+ */
 public class LocalCartData implements DataSource<Cart>
 {
 

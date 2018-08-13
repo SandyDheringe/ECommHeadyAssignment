@@ -4,7 +4,11 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
-
+/**
+ * Ranking category DTO
+ *
+ * @author SandeepD
+ */
 public class RankingCategoryDTO
 {
     @SerializedName("ranking")

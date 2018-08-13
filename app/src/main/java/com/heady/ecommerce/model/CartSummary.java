@@ -1,5 +1,10 @@
 package com.heady.ecommerce.model;
 
+/**
+ * Cart summary entity
+ *
+ * @author SandeepD
+ */
 public class CartSummary
 {
     int cartTotal;

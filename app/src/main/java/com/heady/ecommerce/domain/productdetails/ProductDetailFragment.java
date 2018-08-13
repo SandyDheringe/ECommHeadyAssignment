@@ -29,9 +29,10 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
- * @author shishank
+ * Product details fragment.
+ *
+ * @author SandeepD
  */
-
 public class ProductDetailFragment extends BaseFragment implements Contracts.View
 {
     @BindView(R.id.ll_details)
@@ -113,6 +114,7 @@ public class ProductDetailFragment extends BaseFragment implements Contracts.Vie
         super.onDestroyView();
         unbinder.unbind();
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
@@ -126,6 +128,7 @@ public class ProductDetailFragment extends BaseFragment implements Contracts.Vie
         }
         return super.onOptionsItemSelected(item);
     }
+
     //View methods
     @Override
     public void initView()

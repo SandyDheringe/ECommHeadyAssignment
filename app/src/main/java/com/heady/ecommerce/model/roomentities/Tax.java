@@ -6,6 +6,11 @@ import android.arch.persistence.room.PrimaryKey;
 
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Tax entity.
+ *
+ * @author SandeepD
+ */
 @Entity(tableName = "Tax")
 public class Tax
 {

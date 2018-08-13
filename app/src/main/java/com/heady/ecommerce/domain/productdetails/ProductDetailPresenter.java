@@ -11,13 +11,13 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 /**
- * @author shishank
+ * Product detail presenter
+ *
+ * @author SandeepD
  */
-
 public class ProductDetailPresenter implements Contracts.Presenter
 {
     private Contracts.View productListView;
-    private boolean isUpdating;
     private Repository repository;
 
     ProductDetailPresenter(Contracts.View productListView, Repository repository)
@@ -38,9 +38,9 @@ public class ProductDetailPresenter implements Contracts.Presenter
     {
         Completable.fromAction(() -> {
 
-                Cart cart = new Cart(productDetails.getVariantId(), productDetails.getId(), 1);
+            Cart cart = new Cart(productDetails.getVariantId(), productDetails.getId(), 1);
 
-                repository.cardData().addItem(cart);
+            repository.cardData().addItem(cart);
 
         }).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -66,13 +66,6 @@ public class ProductDetailPresenter implements Contracts.Presenter
                 });
 
     }
-
-    @Override
-    public boolean shouldUpdate()
-    {
-        return !isUpdating;
-    }
-
 
     @Override
     public void showLoading()

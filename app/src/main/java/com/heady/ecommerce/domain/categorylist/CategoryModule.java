@@ -7,14 +7,13 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
- * Created by abhishek
- * on 14/12/17.
+ * Category module.
+ *
+ * @author SandeepD
  */
-
 @Module
 public class CategoryModule
 {
-
     private final Contracts.View categoryView;
 
     public CategoryModule(Contracts.View categoryView)

@@ -1,13 +1,17 @@
 package com.heady.ecommerce.domain.cartdetails;
 
 import android.os.Bundle;
-import android.view.Menu;
 
 import com.heady.ecommerce.BaseToolBarActivity;
 import com.heady.ecommerce.R;
 import com.heady.ecommerce.util.ActivityUtil;
 
-
+/**
+ * This activity shows the shopping bag.
+ * This is in all separate module which may need to call from various places.
+ *
+ * @author SandeepD
+ */
 public class CartActivity extends BaseToolBarActivity
 {
 
@@ -23,7 +27,5 @@ public class CartActivity extends BaseToolBarActivity
         ActivityUtil.replaceFragment(this, null, CartFragment.newInstance(), false, R.id.content_frame);
 
     }
-
-
 
 }

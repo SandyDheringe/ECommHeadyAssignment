@@ -6,9 +6,10 @@ import com.heady.ecommerce.model.roomentities.relation.CartDetail;
 import java.util.List;
 
 /**
- * @author shishank
+ * Contract for view and presenter
+ *
+ * @author SandeepD
  */
-
 interface Contracts
 {
 
@@ -32,8 +33,6 @@ interface Contracts
         void init();
 
         void fetchCartProductDetails();
-
-        boolean shouldUpdate();
 
         void showLoading();
 

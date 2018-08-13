@@ -8,6 +8,11 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+/**
+ * Category DTO
+ *
+ * @author SandeepD
+ */
 public class CategoryDTO implements Parcelable
 {
     @SerializedName("id")

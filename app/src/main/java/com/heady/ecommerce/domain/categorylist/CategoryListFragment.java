@@ -35,9 +35,10 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
- * @author shishank
+ * Category list fragment.
+ *
+ * @author sandeepD
  */
-
 public class CategoryListFragment extends BaseFragment implements Contracts.View
 {
 

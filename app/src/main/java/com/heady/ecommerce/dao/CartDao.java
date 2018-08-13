@@ -11,6 +11,11 @@ import java.util.List;
 
 import io.reactivex.Single;
 
+/**
+ * Shopping cart DAO
+ *
+ * @author SandeepD
+ */
 @Dao
 public interface CartDao
 {

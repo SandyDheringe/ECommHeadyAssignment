@@ -7,7 +7,11 @@ import android.arch.persistence.room.OnConflictStrategy;
 import com.heady.ecommerce.model.roomentities.ProductTax;
 
 import java.util.List;
-
+/**
+ * Product Tax DAO - as there can be many to many relation
+ *
+ * @author SandeepD
+ */
 @Dao
 public interface ProductTaxDao
 {

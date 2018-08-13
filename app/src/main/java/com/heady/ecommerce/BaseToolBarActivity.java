@@ -4,6 +4,11 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.FrameLayout;
 
+/**
+ * base toolbar activity
+ *
+ * @author sandeepD
+ */
 public abstract class BaseToolBarActivity extends BaseActivity
 {
 

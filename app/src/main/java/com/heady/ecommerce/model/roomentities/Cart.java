@@ -6,7 +6,11 @@ import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
-
+/**
+ * Cart entity.
+ *
+ * @author SandeepD
+ */
 @Entity(
         foreignKeys = {
                 @ForeignKey(entity = Product.class, parentColumns = "id", childColumns = "prod_id"),

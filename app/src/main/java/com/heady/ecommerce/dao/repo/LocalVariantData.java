@@ -9,7 +9,6 @@ import javax.inject.Inject;
 
 public class LocalVariantData implements DataSource<Variant>
 {
-
     AppDatabase appDatabase;
 
     @Inject

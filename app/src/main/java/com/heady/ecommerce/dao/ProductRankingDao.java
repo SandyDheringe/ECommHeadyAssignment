@@ -7,7 +7,11 @@ import android.arch.persistence.room.OnConflictStrategy;
 import com.heady.ecommerce.model.roomentities.ProductRanking;
 
 import java.util.List;
-
+/**
+ * Product Ranking detail DAO
+ *
+ * @author SandeepD
+ */
 @Dao
 public interface ProductRankingDao
 {

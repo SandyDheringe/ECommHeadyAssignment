@@ -7,6 +7,11 @@ import android.arch.persistence.room.PrimaryKey;
 
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Product Ranking entity.
+ *
+ * @author SandeepD
+ */
 @ForeignKey(entity = Product.class, parentColumns = "id", childColumns = "p_id")
 @Entity(tableName = "ProductRanking")
 public class ProductRanking

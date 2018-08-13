@@ -1,31 +1,31 @@
 package com.heady.ecommerce.domain.cartdetails;
 
-import com.heady.ecommerce.api.ApiService;
 import com.heady.ecommerce.dao.repo.Repository;
 
 import dagger.Module;
 import dagger.Provides;
 
 /**
- * Created by abhishek
- * on 14/12/17.
+ * Cart Module.
+ *
+ * @author SandeepD
  */
 
 @Module
 public class CartModule
 {
 
-    private final Contracts.View categoryView;
+    private final Contracts.View cartView;
 
-    public CartModule(Contracts.View categoryView)
+    public CartModule(Contracts.View cartView)
     {
-        this.categoryView = categoryView;
+        this.cartView = cartView;
     }
 
     @Provides
     @CartScope
     CartPresenter provideCartPresenter(Repository repository)
     {
-        return new CartPresenter(categoryView, repository);
+        return new CartPresenter(cartView, repository);
     }
 }

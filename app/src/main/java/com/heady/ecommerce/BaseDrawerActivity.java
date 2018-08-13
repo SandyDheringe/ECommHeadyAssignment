@@ -10,6 +10,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
+/**
+ * Base drawer activity
+ *
+ * @author Sandeep
+ */
 public abstract class BaseDrawerActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener
 {

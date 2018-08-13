@@ -9,7 +9,11 @@ import com.heady.ecommerce.api.ApiService;
 
 import javax.inject.Inject;
 
-
+/**
+ * Base activity for all the activities.
+ *
+ * @author SandeepD
+ */
 public abstract class BaseActivity extends AppCompatActivity
 {
 

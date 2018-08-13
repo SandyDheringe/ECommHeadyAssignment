@@ -25,8 +25,13 @@
     <dimen name="margin_3x4">6dp</dimen>
     <dimen name="button_margin">100dp</dimen>
 
+    <dimen name="radius_x2">4dp</dimen>
     <dimen name="row_height_8x">64dp</dimen>
     <dimen name="padding_8x">64dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="progress_view_size">60dp</dimen>
+    <dimen name="image_width">90dp</dimen>
+    <dimen name="image_height">120dp</dimen>
+    <dimen name="image_width_large">140dp</dimen>
+    <dimen name="image_height_large">180dp</dimen>
 </resources>

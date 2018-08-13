@@ -6,9 +6,10 @@ import com.heady.ecommerce.model.response.CategoryDTO;
 import java.util.List;
 
 /**
- * @author shishank
+ * Contract for view and presenter
+ *
+ * @author SandeepD
  */
-
 public interface Contracts
 {
 

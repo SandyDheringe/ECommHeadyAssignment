@@ -5,6 +5,11 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+/**
+ * Master data DTO
+ *
+ * @author SandeepD
+ */
 public class MasterdataDTO
 {
 	@SerializedName("categories")

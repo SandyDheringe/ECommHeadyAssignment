@@ -12,6 +12,11 @@ import com.heady.ecommerce.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * Sort bottom sheet
+ *
+ * @author SandeepD
+ */
 public class SortBottomSheetDialogFragment extends BottomSheetDialogFragment implements View.OnClickListener
 {
 

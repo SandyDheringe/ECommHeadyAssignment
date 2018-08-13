@@ -1,24 +1,23 @@
 package com.heady.ecommerce.domain.productlist;
 
 import com.heady.ecommerce.dao.repo.Repository;
-import com.heady.ecommerce.model.roomentities.Category;
-import com.heady.ecommerce.model.roomentities.relation.CategoryAndMapping;
 import com.heady.ecommerce.model.roomentities.relation.ProductDetails;
 
 import java.util.Collections;
 import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 /**
- * @author shishank
+ * Product list presenter
+ *
+ * @author SandeepD
  */
-
 public class ProductListPresenter implements Contracts.Presenter
 {
     private Contracts.View productListView;
-    private boolean isUpdating;
     private Repository repository;
 
     ProductListPresenter(Contracts.View productListView, Repository repository)
@@ -39,29 +38,10 @@ public class ProductListPresenter implements Contracts.Presenter
     {
         showLoading();
 
-        repository.productData().getProductDetails(categoryId).
+        Disposable disposable = repository.productData().getProductDetails(categoryId).
                 subscribeOn(Schedulers.io())
-                .map(productDetailsList -> {
-                    return productDetailsList;
-                })
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(productListView::populateData, this::onError);
-    }
-
-
-    void onError(Throwable throwable)
-    {
-        throwable.printStackTrace();
-    }
-
-    List<Category> parentCategoryList;
-    List<CategoryAndMapping> childCategoryList;
-
-
-    @Override
-    public boolean shouldUpdate()
-    {
-        return !isUpdating;
+                .subscribe(productListView::populateData, productListView::onError);
     }
 
     @Override
