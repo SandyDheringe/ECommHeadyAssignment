@@ -1,5 +1,5 @@
 # ECommHeadyAssignment
-# This is simple assignment task which perform besic ecommerce operations.
+This is simple assignment task which perform besic ecommerce operations.
 
 # The​ ​Assessment
 
