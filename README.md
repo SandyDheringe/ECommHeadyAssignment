@@ -1,7 +1,7 @@
 # ECommHeadyAssignment
 # This is simple assignment task which perform besic ecommerce operations.
 
-#The​ ​Assessment
+# The​ ​Assessment
 
 For following JSON (URL: https://stark-spire-93433.herokuapp.com/json), your task is to create
 a ​mobile ​Android ​interface ​that ​would ​consume ​and ​output ​the ​data.
@@ -15,7 +15,7 @@ group ​the ​products ​based ​on ​the ​ranking ​it ​falls ​unde
 You will have to display this data in best possible way you can imagine. User should be able
 to ​browse ​data ​category/sub-category ​wise.
 
-#Library and Architecture
+# Library and Architecture
 1. Dagger2
 2. MVP
 3. RX Java
