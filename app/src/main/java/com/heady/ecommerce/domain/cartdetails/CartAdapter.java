@@ -147,7 +147,7 @@ class CartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                 tvSize.setVisibility(View.GONE);
             }
             tvQuantity.setText(context.getString(R.string.str_qty, result.getCart().getQuantity()));
-            tvPrice.setText(context.getString(R.string.str_price, result.getVariant().getPrice(), result.getTax().getName(), result.getTax().getValue()));
+            tvPrice.setText(context.getString(R.string.str_rs, result.getVariant().getPrice()));
         }
 
         @Override

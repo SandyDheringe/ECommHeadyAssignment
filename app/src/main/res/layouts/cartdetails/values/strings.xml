@@ -3,7 +3,6 @@
     <string name="str_color">Color: %s</string>
     <string name="str_size">Size: %d</string>
     <string name="str_qty">Qty: %d</string>
-    <string name="str_price">Rs. %d  +  %s(%.1f%%)</string>
     <string name="str_rs">Rs. %d</string>
     <string name="str_place_order">Place Order</string>
     <string name="bag_total">Bag Total</string>
